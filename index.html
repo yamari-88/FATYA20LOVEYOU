@@ -1,0 +1,351 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Инструкция по применению Фатя</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=IBM+Plex+Mono:wght@400;500&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#120b0a;
+  --brown:#3b2218;
+  --brown-soft:#6b4a3a;
+  --burgundy:#7c1d2c;
+  --neon:#ff3d81;
+  --neon-glow:rgba(255,61,129,.55);
+  --beige:#e8d9c4;
+  --muted:#a8917f;
+  --orange:#ff8a2a;
+  --display:"Cormorant Garamond","Times New Roman",serif;
+  --body:"Manrope",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  background:var(--ink);
+  color:var(--beige);
+  font:400 16px/1.65 var(--body);
+  padding-block:0 56px;
+  padding-left:max(16px,env(safe-area-inset-left,0px));
+  padding-right:max(16px,env(safe-area-inset-right,0px));
+}
+.wrap{max-width:760px;margin-inline:auto}
+img{display:block;max-width:100%}
+p{margin:0 0 12px}
+h1,h2{margin:0}
+
+/* все фото: квадратная рамка, ширина колонки, без искажения */
+.sq{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:10px;border:1px solid rgba(59,34,24,.35)}
+
+/* ---------- hero ---------- */
+.hero{padding-block:44px 40px}
+.hero-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:32px;align-items:center}
+.hero-grid>*{min-width:0}
+.tag{font:500 12px/1.4 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.title{
+  font:italic 600 clamp(84px,24vw,168px)/.95 var(--display);
+  color:#ffe6ef;
+  text-shadow:0 0 6px var(--neon),0 0 24px var(--neon),0 0 54px var(--neon-glow);
+  margin:6px 0 14px;
+  animation:flick 7s infinite;
+}
+.lead{font:italic 500 24px/1.3 var(--display);color:var(--beige);max-width:24ch}
+.lead span{display:block}
+.bday{margin-top:18px;font:500 13px/1.4 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--neon)}
+.hero-photo{margin:0;border-radius:18px;overflow:hidden;box-shadow:0 0 0 2px var(--neon),0 0 34px var(--neon-glow);transform:rotate(1.5deg)}
+.hero-photo img{width:100%;aspect-ratio:1/1;object-fit:cover;object-position:50% 30%}
+
+/* ---------- бумажная аннотация ---------- */
+.paper{
+  background:linear-gradient(#ecdec9,#e2d0b7);
+  color:var(--brown);
+  border-radius:10px;
+  padding:30px clamp(18px,5vw,42px) 34px;
+  box-shadow:0 0 0 1px rgba(255,61,129,.18),0 28px 64px rgba(0,0,0,.55);
+}
+.paper h2{font:500 13px/1.4 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--burgundy);margin-bottom:12px}
+.sec+.sec{margin-top:28px;padding-top:26px;border-top:1px dashed rgba(59,34,24,.4)}
+.paper p,.paper li{color:var(--brown)}
+.sub{font:500 12px/1.4 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--brown-soft);margin:14px 0 8px}
+.chips{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.chips li{border:1px solid var(--burgundy);color:var(--burgundy);border-radius:999px;padding:3px 13px;font-size:14px;font-weight:500}
+.chips.soft li{border-color:rgba(59,34,24,.45);color:var(--brown-soft)}
+.list{margin:0;padding-left:1.2em}
+.list li{margin-bottom:6px}
+.list li::marker{color:var(--burgundy)}
+.quote{margin:4px 0 8px;font:italic 500 clamp(26px,6.6vw,36px)/1.15 var(--display);color:var(--burgundy)}
+.stack{display:grid;gap:12px;margin:6px 0 8px}
+.stack figure{margin:0;min-width:0}
+.cap{font:400 12px/1.4 var(--mono);color:var(--brown-soft);margin-top:6px}
+.hearts{margin:10px 0 4px;font-size:26px;line-height:1.35;letter-spacing:.1em;word-break:break-all;color:var(--orange);animation:bob 3.2s ease-in-out infinite}
+.dl{margin:0;display:grid;gap:10px}
+.dl dt{font:500 12px/1.4 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--burgundy)}
+.dl dd{margin:0}
+
+/* ---------- тёмные полосы ---------- */
+.band{padding-block:56px 12px}
+.band .label{font:500 12px/1.4 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--neon);margin-bottom:6px}
+.band h2{font:italic 600 clamp(40px,11vw,60px)/1.05 var(--display);color:#ffe6ef;text-shadow:0 0 18px var(--neon-glow);margin-bottom:6px}
+.band p{color:var(--beige)}
+.love{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px;align-items:center;margin-top:8px}
+.love>*{min-width:0}
+.love figure{margin:0;border-radius:14px;overflow:hidden;box-shadow:0 0 0 1px var(--neon),0 0 26px var(--neon-glow)}
+.love figure img{width:100%;aspect-ratio:1/1;object-fit:cover}
+
+/* купидон */
+.cupid{width:100%;height:auto;display:block;margin:6px 0 0;overflow:visible}
+.cupid .body{fill:var(--beige)}
+.cupid .limb{fill:none;stroke:var(--beige);stroke-width:3;stroke-linecap:round}
+.cupid .bow{fill:none;stroke:var(--neon);stroke-width:3;stroke-linecap:round;filter:drop-shadow(0 0 4px var(--neon))}
+.cupid .string{stroke:var(--beige);stroke-width:1;opacity:.7}
+.cupid .arrow line{stroke:var(--beige);stroke-width:2.4;stroke-linecap:round}
+.cupid .arrow polygon{fill:var(--neon)}
+.cupid .lab{font:500 7px var(--mono);letter-spacing:.1em;fill:var(--beige)}
+.cupid .lab2{font:500 10px var(--mono);letter-spacing:.08em;fill:var(--muted)}
+.cupid .hh{fill:transparent;stroke:var(--beige);stroke-width:1.6;animation:fillup 8s infinite}
+.cupid .hA{animation:meetA 8s infinite}
+.cupid .hB{animation:meetB 8s infinite}
+.cupid .arrow{animation:shoot 8s infinite}
+.cupid .bu{fill:var(--neon);opacity:0;animation:burst 8s infinite}
+.cupid .b2{animation-delay:.25s}
+.cupid .b3{animation-delay:.5s}
+
+.big{font:italic 500 clamp(28px,7vw,40px)/1.25 var(--display);color:var(--beige);margin:0 0 20px}
+.glow{color:#ffe6ef;text-shadow:0 0 14px var(--neon),0 0 34px var(--neon-glow)}
+.always{margin:22px 0 30px;padding:20px clamp(16px,4vw,26px);border-radius:10px;background:var(--burgundy);color:#f5e6d3;box-shadow:0 0 0 1px var(--neon),0 0 28px var(--neon-glow)}
+.always .mono{font:500 12px/1.4 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:#ffc7da;margin-bottom:6px}
+.always p:last-child{margin:0;font:italic 500 26px/1.25 var(--display);color:#fff1e4}
+.sign{margin-top:28px;font:italic 600 34px/1.1 var(--display);color:#ffe6ef;text-shadow:0 0 14px var(--neon-glow)}
+.date{font:500 13px/1.4 var(--mono);letter-spacing:.14em;color:var(--muted);margin-top:6px}
+
+@keyframes flick{0%,90%,94%,100%{opacity:1}91%{opacity:.82}92.5%{opacity:.95}93%{opacity:.78}}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+@keyframes shoot{
+  0%,6%{transform:translateX(0);opacity:1}
+  34%{transform:translateX(158px);opacity:1}
+  37%,100%{transform:translateX(158px);opacity:0}
+}
+@keyframes meetA{0%,34%{transform:translateX(0)}46%,88%{transform:translateX(20px)}100%{transform:translateX(0)}}
+@keyframes meetB{0%,34%{transform:translateX(0)}46%,88%{transform:translateX(-20px)}100%{transform:translateX(0)}}
+@keyframes fillup{
+  0%,34%{fill:transparent;stroke:#e8d9c4;filter:none}
+  42%,88%{fill:#ff3d81;stroke:#ff3d81;filter:drop-shadow(0 0 6px #ff3d81)}
+  100%{fill:transparent;stroke:#e8d9c4;filter:none}
+}
+@keyframes burst{
+  0%,40%{opacity:0;transform:translateY(0)}
+  48%{opacity:1}
+  82%,100%{opacity:0;transform:translateY(-52px)}
+}
+@media (prefers-reduced-motion:reduce){
+  .title,.hearts{animation:none}
+  .cupid .hA{animation:none;transform:translateX(20px)}
+  .cupid .hB{animation:none;transform:translateX(-20px)}
+  .cupid .hh{animation:none;fill:#ff3d81;stroke:#ff3d81}
+  .cupid .arrow{animation:none;opacity:0}
+  .cupid .bu{animation:none;opacity:0}
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="tag">Инструкция по применению · Рег. № 19/11</p>
+      <h1 class="title">Фатя</h1>
+      <p class="lead"><span>Лекарственная форма: человек (почти).</span><span>Хранить в тёплом месте, беречь от сомнений.</span></p>
+      <p class="bday">С днём рождения 🤎</p>
+    </div>
+    <figure class="hero-photo">
+      <img src="img/hero.jpg" alt="Фатя, портрет в бежевых тонах" width="1084" height="1007">
+    </figure>
+  </div>
+</header>
+
+<main class="wrap">
+  <article class="paper">
+
+    <section class="sec">
+      <h2>Состав</h2>
+      <p class="sub">Действующие вещества</p>
+      <ul class="chips">
+        <li>честность</li>
+        <li>объективность</li>
+        <li>искренность</li>
+        <li>«космическое мышление»</li>
+      </ul>
+      <p class="sub">Вспомогательные вещества</p>
+      <ul class="chips soft">
+        <li>любовь к котам</li>
+        <li>доброта</li>
+        <li>способность доверять</li>
+        <li>острый ум</li>
+      </ul>
+    </section>
+
+    <section class="sec">
+      <h2>Показания к применению</h2>
+      <ul class="list">
+        <li>когда нужен честный и объективный взгляд на ситуацию;</li>
+        <li>когда хочется самого комфортного созвона на свете;</li>
+        <li>когда пора поговорить о котах, о людях или о сущности мироздания.</li>
+      </ul>
+    </section>
+
+    <section class="sec">
+      <h2>Способ применения</h2>
+      <p>Звонить, писать, приезжать.</p>
+      <p>Принимать в любое время суток, без спешки. Разговоры голосом усиливают эффект.</p>
+    </section>
+
+    <section class="sec">
+      <h2>Особые указания</h2>
+      <p class="sub">Принимать, когда нуждаешься в разговоре с человеком, с которым говоришь будто с зеркалом</p>
+
+      <p class="sub" style="margin-top:22px">Эффект зеркала</p>
+      <div class="stack">
+        <figure><img class="sq" src="img/mirror.jpg" alt="Фатя в зелёной блузке, смотрит прямо в камеру"></figure>
+      </div>
+    </section>
+
+    <section class="sec">
+      <h2>Клинические испытания</h2>
+      <p>Пройдены. Медицинский колледж окончен с красным дипломом. Умная ты очень.</p>
+      <div class="stack">
+        <figure>
+          <img class="sq" src="img/diploma.jpg" alt="Диплом о среднем профессиональном образовании с отличием">
+          <figcaption class="cap">Диплом с отличием</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="sec">
+      <h2>Из архива</h2>
+      <div class="stack">
+        <figure><img class="sq" src="img/kid1.jpg" alt="Фатя в детстве, в джинсовом комбинезоне"></figure>
+        <figure><img class="sq" src="img/kid2.jpg" alt="Фатя в детстве, сидит на комоде"></figure>
+      </div>
+      <p class="cap">Дата производства: 19.11.2006 🤎</p>
+    </section>
+
+  </article>
+</main>
+
+<section class="band wrap">
+  <p class="label">Совместимость</p>
+  <h2>Фатя + Биба</h2>
+  <p>Совместимость на космическом уровне, словами определить невозможно. Купидон Мария очень старался 🤎</p>
+
+  <svg class="cupid" viewBox="0 0 360 190" role="img" aria-label="Купидон Мария выпускает стрелу, и два сердца, Фатя и Биба, сближаются">
+    <defs>
+      <path id="h" d="M0 9 C -15 -3 -13 -16 -6 -16 C -3 -16 0 -14 0 -11 C 0 -14 3 -16 6 -16 C 13 -16 15 -3 0 9 Z"/>
+    </defs>
+    <g transform="translate(46 100)">
+      <path class="body" d="M-4 -6 C -34 -40 -40 -6 -18 2 C -34 6 -26 22 -4 8 Z"/>
+      <circle class="body" cx="2" cy="-20" r="8"/>
+      <path class="body" d="M-5 -10 Q 2 -13 9 -10 L 8 14 Q 2 18 -4 14 Z"/>
+      <path class="limb" d="M-2 16 L -6 34 M 6 16 L 10 32"/>
+      <path class="limb" d="M9 -4 L 28 -2"/>
+    </g>
+    <path class="bow" d="M72 72 Q 102 100 72 128"/>
+    <line class="string" x1="72" y1="72" x2="72" y2="128"/>
+    <text class="lab2" x="46" y="156" text-anchor="middle">Мария</text>
+    <g transform="translate(72 100)">
+      <g class="arrow">
+        <line x1="-8" y1="0" x2="34" y2="0"/>
+        <line x1="-8" y1="0" x2="-14" y2="-5"/>
+        <line x1="-8" y1="0" x2="-14" y2="5"/>
+        <polygon points="34,-5 46,0 34,5"/>
+      </g>
+    </g>
+    <g transform="translate(230 100) scale(1.5)">
+      <g class="hA"><use class="hh" href="#h"/><text class="lab" x="0" y="26" text-anchor="middle">Фатя</text></g>
+    </g>
+    <g transform="translate(310 100) scale(1.5)">
+      <g class="hB"><use class="hh" href="#h"/><text class="lab" x="0" y="26" text-anchor="middle">Биба</text></g>
+    </g>
+    <g transform="translate(258 78) scale(.5)"><use class="bu" href="#h"/></g>
+    <g transform="translate(270 70) scale(.6)"><use class="bu b2" href="#h"/></g>
+    <g transform="translate(284 80) scale(.45)"><use class="bu b3" href="#h"/></g>
+  </svg>
+
+  <div class="love">
+    <figure>
+      <img src="img/purple.jpg" alt="Фатя в фиолетовом свете с розовыми сердечками">
+    </figure>
+    <div>
+      <p class="big" style="font-size:clamp(26px,6vw,34px)">Любовь подтверждена. Побочное действие: <span class="glow">сердечки в глазах</span> 🤎</p>
+    </div>
+  </div>
+</section>
+
+<main class="wrap" style="margin-top:56px">
+  <article class="paper">
+
+    <section class="sec cat">
+      <h2>Сопутствующий препарат</h2>
+      <p>Кот 🧡</p>
+      <p>Принимать вместе с основным курсом. Побочных эффектов не выявлено, кроме мурчания.</p>
+      <img class="sq" src="img/cat.jpg" alt="Пушистый полосатый кот спит на деревянной тумбе рядом с синей вазой">
+      <p class="hearts" aria-hidden="true">🧡🧡🧡🧡🧡🧡🧡🧡🧡🧡🧡🧡🧡🧡🧡🧡🧡🧡</p>
+    </section>
+
+    <section class="sec">
+      <h2>побочные действия приема препарата</h2>
+      <ul class="list">
+        <li>привычка спрашивать себя: «а как бы на это посмотрела Фатя?»;</li>
+        <li>желание позвонить прямо сейчас;</li>
+        <li>улыбка без причины.</li>
+      </ul>
+    </section>
+
+    <section class="sec">
+      <h2>Противопоказания</h2>
+      <ul class="list">
+        <li>сомнения в собственной ценности;</li>
+        <li>люди, которые заставляют в себе сомневаться.</li>
+      </ul>
+    </section>
+
+    <section class="sec">
+      <h2>Внешний вид</h2>
+      <div class="stack">
+        <figure><img class="sq" src="img/gal-glasses.jpg" alt="Фатя в очках в полутьме"></figure>
+        <figure><img class="sq" src="img/gal-lip.jpg" alt="Фатя, селфи с красной помадой на переднем плане"></figure>
+        <figure><img class="sq" src="img/gal-warm.jpg" alt="Фатя в тёплом оранжевом свете"></figure>
+      </div>
+    </section>
+
+    <section class="sec">
+      <h2>Хранение</h2>
+      <dl class="dl">
+        <div><dt>Срок годности</dt><dd>Не ограничен.</dd></div>
+        <div><dt>Условия хранения</dt><dd>В тёплом месте, рядом с теми, кто любит 🤎</dd></div>
+      </dl>
+    </section>
+
+  </article>
+</main>
+
+<section class="band wrap">
+  <p class="label">Важно</p>
+  <div class="always">
+    <p class="mono">Взаимодействие двустороннее</p>
+    <p>я всегда рядом.</p>
+    <p>несмотря ни на что 🤎</p>
+  </div>
+
+  <p class="big">Обожаю тебя всю.<br>и люблю все твои изюминки.<br>спасибо тебе за тебя 🤎</p>
+
+  <p class="sign">Твоя Маруська 🤎</p>
+  <p class="date">19.11.2026</p>
+</section>
+
+</body>
+</html>
